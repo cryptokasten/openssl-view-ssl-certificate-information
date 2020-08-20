@@ -1,0 +1,82 @@
+#+TITLE: OpenSSL: View SSL certificate information
+#+PROPERTY: header-args:sh :session *shell openssl-view-ssl-certificate-information sh* :results silent raw
+#+PROPERTY: header-args:python :session *shell openssl-view-ssl-certificate-information python* :results silent raw
+#+OPTIONS: ^:nil
+
+** System environment
+
+- Debian 9.11
+
+- OpenSSL 1.0.2u
+
+** View certificate
+
+#+BEGIN_SRC sh :results replace code :exports both
+openssl x509 -text -noout -in keys/domain.crt
+#+END_SRC
+
+#+RESULTS:
+#+begin_src sh
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            dc:6e:52:8c:97:c7:8e:d2
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=New York, L=Brooklyn, O=Example Brooklyn Company, OU=Technology Division, CN=examplebrooklyn.com
+        Validity
+            Not Before: Jun 17 12:10:27 2020 GMT
+            Not After : Jun 17 12:10:27 2021 GMT
+        Subject: C=US, ST=New York, L=Brooklyn, O=Example Brooklyn Company, OU=Technology Division, CN=examplebrooklyn.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:be:14:4e:09:2c:40:2e:d3:d5:60:aa:61:83:c4:
+                    bb:d6:67:08:6a:be:76:cd:c4:dd:8d:7a:40:b5:de:
+                    3e:14:06:15:2c:06:28:c4:4b:86:12:9d:4b:d7:7b:
+                    bc:48:0a:33:c8:58:0d:7b:87:12:83:ac:50:c6:9b:
+                    ee:3f:9f:60:55:9b:50:90:2d:bc:bc:ea:94:ea:6e:
+                    63:f4:01:a2:ce:75:ec:ec:ae:43:f9:87:c9:6d:55:
+                    8b:f2:14:ce:b7:fa:79:a1:52:39:5c:1c:af:da:24:
+                    90:8f:12:0d:81:bd:83:bf:c5:c2:66:20:88:62:97:
+                    fb:b4:9c:75:94:48:f4:ec:c1:6f:fc:e5:58:56:69:
+                    10:df:91:97:f2:44:3d:8d:2b:6a:6c:83:1c:6e:51:
+                    98:e0:a2:75:5f:6c:53:d1:74:1b:65:19:e3:e6:17:
+                    3b:f0:80:53:d0:79:96:44:de:cc:c5:85:c3:ff:14:
+                    70:90:6c:36:7e:e5:ed:75:83:f5:a8:48:66:8c:61:
+                    91:f8:ff:85:c6:28:44:4a:58:e5:96:14:0a:7a:b1:
+                    eb:0f:f2:68:0a:09:d9:5e:87:51:20:c3:c7:61:90:
+                    4a:d5:18:04:4c:d9:4d:80:38:b9:79:f9:42:3d:24:
+                    30:75:b8:a7:79:42:21:66:71:a2:5e:58:35:92:da:
+                    0a:73
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                A0:9F:84:A7:B0:C4:F8:4E:97:08:4F:71:E6:15:76:04:0E:16:7F:43
+            X509v3 Authority Key Identifier: 
+                keyid:A0:9F:84:A7:B0:C4:F8:4E:97:08:4F:71:E6:15:76:04:0E:16:7F:43
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+    Signature Algorithm: sha256WithRSAEncryption
+         4c:ac:09:d3:a0:ed:c0:a6:a4:18:de:9b:cb:92:f1:4c:88:4b:
+         2b:e7:7e:33:c8:e3:bf:15:e6:70:cc:51:58:73:b7:8c:9e:3b:
+         c5:0c:e6:54:8c:73:2d:a4:c2:17:7d:ef:e4:75:f9:07:9f:f7:
+         7e:d8:d5:23:31:39:eb:b7:ed:81:ce:45:2b:b6:26:d3:a4:38:
+         42:e6:fc:86:68:a8:ed:47:1f:b2:1a:fc:3a:08:8e:a3:bd:09:
+         aa:b4:83:12:c8:98:bb:df:0a:65:d9:fb:8d:b8:b0:79:95:cc:
+         6e:c6:89:d4:af:97:58:00:29:bc:0c:ab:48:d7:20:a9:12:c8:
+         80:45:0f:57:a1:75:12:f7:31:4a:02:d9:95:79:f3:12:01:31:
+         ea:6e:9a:5f:53:96:45:3f:5d:7a:5b:6e:48:30:62:1d:76:8b:
+         ac:75:02:b8:65:0b:cc:86:d2:bf:6c:bc:1c:2e:ac:a3:a6:39:
+         a6:51:3a:47:88:de:84:61:9b:b3:cb:09:1b:b7:78:27:96:10:
+         25:21:67:86:83:05:50:b0:26:48:dd:9a:a4:5e:0f:0c:5b:ac:
+         39:c8:42:60:5b:84:8f:8c:1d:93:c2:d0:38:be:6d:64:38:2e:
+         5a:38:52:3f:56:b4:6e:92:d4:61:a4:1b:43:50:e8:88:83:6a:
+         a6:44:ee:32
+#+end_src
+
+** References
+
+- https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
